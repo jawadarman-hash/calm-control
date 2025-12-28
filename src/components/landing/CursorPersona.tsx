@@ -1,9 +1,10 @@
 interface CursorPersonaProps {
   name: string;
   role: string;
-  color: "blue" | "green" | "purple" | "orange";
-  position: { x: number; y: number };
+  color: "blue" | "green" | "purple" | "orange" | "red";
+  position?: { x: number; y: number };
   delay?: number;
+  className?: string;
 }
 
 const colorMap = {
@@ -11,6 +12,7 @@ const colorMap = {
   green: "hsl(150, 80%, 45%)",
   purple: "hsl(270, 70%, 55%)",
   orange: "hsl(30, 90%, 55%)",
+  red: "hsl(0, 80%, 55%)",
 };
 
 const bgColorMap = {
@@ -18,6 +20,7 @@ const bgColorMap = {
   green: "bg-emerald-500",
   purple: "bg-violet-500",
   orange: "bg-orange-500",
+  red: "bg-red-500",
 };
 
 export const CursorPersona = ({
@@ -26,15 +29,18 @@ export const CursorPersona = ({
   color,
   position,
   delay = 0,
+  className = "",
 }: CursorPersonaProps) => {
+  const hasPosition = position !== undefined;
+  
   return (
     <div
-      className="cursor-persona"
-      style={{
+      className={`${hasPosition ? "cursor-persona" : "flex items-center gap-1"} ${className}`}
+      style={hasPosition ? {
         left: `${position.x}%`,
         top: `${position.y}%`,
         animationDelay: `${delay}s`,
-      }}
+      } : undefined}
     >
       <svg
         width="20"
@@ -51,7 +57,7 @@ export const CursorPersona = ({
         />
       </svg>
       <div
-        className={`absolute left-4 top-4 ${bgColorMap[color]} text-white text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap shadow-lg`}
+        className={`${hasPosition ? "absolute left-4 top-4" : ""} ${bgColorMap[color]} text-white text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap shadow-lg`}
       >
         {name}
         <span className="text-white/70 ml-1">• {role}</span>

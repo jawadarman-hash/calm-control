@@ -5,6 +5,9 @@ const steps = [
   { id: 2, label: "SOPs" },
   { id: 3, label: "Execution" },
   { id: 4, label: "Freedom" },
+  { id: 5, label: "Scoreboards" },
+  { id: 6, label: "AI Insights" },
+  { id: 7, label: "Structure" },
 ];
 
 interface StepperNavProps {
