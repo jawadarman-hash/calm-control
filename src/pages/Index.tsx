@@ -5,6 +5,9 @@ import { KnowledgeSection } from "@/components/landing/KnowledgeSection";
 import { SOPSection } from "@/components/landing/SOPSection";
 import { ExecutionSection } from "@/components/landing/ExecutionSection";
 import { FreedomSection } from "@/components/landing/FreedomSection";
+import { ScoreboardsSection } from "@/components/landing/ScoreboardsSection";
+import { AIInsightsSection } from "@/components/landing/AIInsightsSection";
+import { DepartmentsSection } from "@/components/landing/DepartmentsSection";
 import { CTASection } from "@/components/landing/CTASection";
 import { Footer } from "@/components/landing/Footer";
 import { StepperNav } from "@/components/landing/StepperNav";
@@ -19,6 +22,9 @@ const Index = () => {
         document.getElementById("section-2"),
         document.getElementById("section-3"),
         document.getElementById("section-4"),
+        document.getElementById("section-5"),
+        document.getElementById("section-6"),
+        document.getElementById("section-7"),
       ];
 
       const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -50,6 +56,9 @@ const Index = () => {
         <SOPSection />
         <ExecutionSection />
         <FreedomSection />
+        <ScoreboardsSection />
+        <AIInsightsSection />
+        <DepartmentsSection />
         <CTASection />
       </main>
       
